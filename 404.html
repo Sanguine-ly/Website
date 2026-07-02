@@ -4,11 +4,20 @@
   <meta charset="utf-8">
   <title>Redirecting...</title>
   <script>
-    // Always redirect to homepage
-    window.location.replace("https:plaid.wales");
+    (function () {
+      const path = window.location.pathname;
+
+      // If already homepage, stop (prevents loop)
+      if (path === "/" || path === "/index.html") {
+        return;
+      }
+
+      // Redirect everything else to homepage
+      window.location.replace("https://plaid.wales/");
+    })();
   </script>
 </head>
 <body>
-  <p></p>
+  <p>Redirecting...</p>
 </body>
 </html>
